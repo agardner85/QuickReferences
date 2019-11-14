@@ -8,6 +8,8 @@
         var newVar = 'hi there'; // String
         var newVar2 = '6'; // String
         var newNum = 5; // number
+        var newNum2 = 6; // number
+        var numOneBigger = newNum > newNum2; // =false / boolean
 
     // How to set a variable version 'B'
         var newVar, newVar2, newNum;
