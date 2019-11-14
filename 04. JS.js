@@ -10,3 +10,9 @@ console.log(displayThisMessage);
 
 // This will present the information as aline item with in the inspector console
 console.log(displayThisMessage);
+
+// This will display a question to the user that much like the alert, must be addressed before the user can move on
+prompt('What day is today?');
+
+// You would not do this unless you want to store/use the information so you can set it to a variable
+var whatdayisIt = prompt('What day is today?');
