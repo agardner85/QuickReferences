@@ -15,4 +15,4 @@ console.log(displayThisMessage);
 prompt('What day is today?');
 
 // You would not do this unless you want to store/use the information so you can set it to a variable
-var whatdayisIt = prompt('What day is today?');
+var whatDayIsIt = prompt('What day is today?');
