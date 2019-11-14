@@ -83,5 +83,5 @@
       var numTwo = 10;
       var numOneBigger = numOne > numTwo;
       var numOneBigger2 = numOne < numTwo;
-      console.log(numOneBigger);
-      console.log(numOneBigger2);
+      console.log(numOneBigger); // = false
+      console.log(numOneBigger2); // = true
