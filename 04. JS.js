@@ -30,7 +30,11 @@
         var newNum = 5; // number
         console.log(typeof newVar2); // = String
 
-/* -- display message / browser message / system popup -- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ------------  Browser messaging  ------------ */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 
     var displayThisMessage = 'This is the message';
 
