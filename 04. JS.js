@@ -28,7 +28,7 @@
         var newVar = 'hi there'; // String
         var newVar2 = '6'; // String
         var newNum = 5; // number
-        console.log(typeof newVar2);
+        console.log(typeof newVar2); // = String
 
 /* -- display message / browser message / system popup -- */
 
