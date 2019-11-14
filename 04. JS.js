@@ -4,7 +4,6 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */                                          
                                              
-
     // How to set a variable version 'A' (recommended)
         var newVar = 'hi there'; // String
         var newVar2 = '6'; // String
