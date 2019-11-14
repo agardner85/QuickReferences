@@ -8,9 +8,6 @@
     // This will present the information as aline item with in the inspector console
     console.log(displayThisMessage);
 
-    // This will present the information as aline item with in the inspector console
-    console.log(displayThisMessage);
-
     // This will display a question to the user that much like the alert, must be addressed before the user can move on
     prompt('What day is today?');
 
