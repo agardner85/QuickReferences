@@ -153,7 +153,7 @@
 
 
         // statment one is false, but statment 2 has 2 requirements to fill to be satisfied
-        // && = and - this means that both statmenst need to be true
+        // && = and statment - this means that both statmenst need to be true
         var numOne = 5;
         var numTwo = 8;
         if (numOne == 5 && numTwo == 8) {
@@ -164,7 +164,7 @@
         }
 
 
-        // || = or - this means that only one of the requirmenst hass to be correct to be satisfied
+        // || = or statment - this means that only one of the requirmenst hass to be correct to be satisfied
         var numOne = 5;
         var numTwo = 8;
         if (numOne == 5 || numTwo == 12) {
@@ -186,7 +186,7 @@
         }
 
 
-        // > = greaterthan - the first requiment needs to be larger than the second
+        // > = greaterthan statment - the first requiment needs to be larger than the second
         var numOne = 5;
         var numTwo = 8;
         if (numTwo > numOne) {
@@ -197,7 +197,7 @@
         }
 
 
-        // >= = greaterthan or equal too - the first requiment needs to be the same as or larger that what it is being compared too.
+        // >= = greaterthan or equal too statment - the first requiment needs to be the same as or larger that what it is being compared too.
         var numOne = 5;
         var numTwo = 8;
         if (numTwo >= 8) {
@@ -208,7 +208,7 @@
         }
 
 
-        // < = greaterthan - the first requiment needs to be larger than the second
+        // < = greaterthan statment - the first requiment needs to be larger than the second
         var numOne = 5;
         var numTwo = 8;
         if (numOne < numTwo) {
@@ -219,7 +219,7 @@
         }
 
 
-        // <= = greaterthan or equal too - the first requiment needs to be the same as or larger that what it is being compared too.
+        // <= = greaterthan or equal too statment - the first requiment needs to be the same as or larger that what it is being compared too.
         var numOne = 5;
         var numTwo = 8;
         if (numOne <= 5) {
