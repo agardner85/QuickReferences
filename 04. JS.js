@@ -50,3 +50,38 @@
         // You would not do this unless you want to store/use the information, so you can set it to a variable
             var whatDayIsIt = prompt('What day is today?');
             console.log(whatDayIsIt);
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ------  Operators - Math - true/false  ------ */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+      // Addition
+      var newNumber = 1+2; // =3
+
+      // Subtraction
+      var newNumber = 7-2; // =5
+
+      // Multiplication
+      var newNumber = 5*5; // =25
+
+      // Division
+      var newNumber = 10/2; // =10
+
+      // order of operation / stuff in parentheses is calulated first
+      var newNumber = 5*5+((12-5)+(2*5));
+      // eq1=(12-5=7) 
+      // eq2=(2*5=10)
+      // eq3='eq1+eq2'=(7+10=12)
+      // eq4=(5*5=25)
+      // eq5='eq3+eq4'=(25+12=42)
+      // newNumber = 42
+
+      // if somthing true/false using greaterthan lessthan
+      var numOne = 5;
+      var numTwo = 10;
+      var numOneBigger = numOne > numTwo;
+      var numOneBigger2 = numOne < numTwo;
+      console.log(numOneBigger);
+      console.log(numOneBigger2);
