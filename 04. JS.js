@@ -85,7 +85,7 @@
         // newNumber = 42
         console.log(newNumber);
 
-        // if somthing true/false using greaterthan lessthan
+        // if something true/false using greaterthan lessthan
         var numOne = 5;
         var numTwo = 10;
         var numOneBigger = numOne > numTwo;
@@ -114,7 +114,7 @@
             console.log('this number is 8 | Statment 1 was not satisifed but statment 2 was');
         }
         else {
-            console.log('this number is somthing other than 5 or 8');
+            console.log('this number is something other than 5 or 8');
         }
 
         // The below statment failed the firststamnet and was satissfied on the 2nd and stoped
@@ -127,7 +127,7 @@
             console.log('this number is 8 | Statment 1 was not satisfied but statment 2 was');
         }
         else {
-            console.log('this number is somthing other than 5 or 8 | no statments were satisfied');
+            console.log('this number is something other than 5 or 8 | no statments were satisfied');
         }
 
         // None of the statments were satisfied so it resulted into a generic catch all at the bottom of the statment.
@@ -140,7 +140,7 @@
             console.log('this number is 8 | statment 1 was not satisfied but statment 2 was');
         }
         else {
-            console.log('this number is somthing other than 5 or 8 | no statments were satisfied');
+            console.log('this number is something other than 5 or 8 | no statments were satisfied');
         }
 
 /* --------------------------------------------- */
@@ -160,7 +160,7 @@
             console.log('all requirements were satisfied');
         }
         else {
-            console.log('this number is somthing other than 5 or 8');
+            console.log('this number is something other than 5 or 8');
         }
 
 
@@ -171,15 +171,15 @@
             console.log('at least 1 of the requirements were satisfied');
         }
         else {
-            console.log('this number is somthing other than 5 or 8');
+            console.log('this number is something other than 5 or 8');
         }
 
 
-        // ! = does not equal - This means that the requirmenst needs to be somthing other than the spacific value it is looking for.
+        // ! = does not equal - This means that the requirmenst needs to be something other than the spacific value it is looking for.
         var numOne = 5;
         var numTwo = 8;
         if (numOne != 4 && numTwo != 10) {
-            console.log('both requirmenst are somthing other than the spacific value it is looking for');
+            console.log('both requirmenst are something other than the spacific value it is looking for');
         }
         else {
             console.log('-');
