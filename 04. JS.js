@@ -24,6 +24,12 @@
         var aThing = 'car';
         aThing = 'truck';
 
+    // How do know for a fact of what value type you have
+        var newVar = 'hi there'; // String
+        var newVar2 = '6'; // String
+        var newNum = 5; // number
+        console.log(typeof newVar2);
+
 /* -- display message / browser message / system popup -- */
 
     var displayThisMessage = 'This is the message';
