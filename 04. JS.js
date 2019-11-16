@@ -99,7 +99,6 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */     
 
-
     // if statments will stop on the first statment that is true
     // always add an 'else' to your fif statmenst. it seems like extra unneeded work, but it adds a level of fallback that allows you to find errors or redirect a probelms so that the codes does not die on that line.
 
@@ -235,7 +234,6 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */  
 
-
     // you can write if statmnets with less code.
 
         // ? acts as the {} portion directly after a standard if statment
@@ -265,7 +263,6 @@
 /* ----------- Switch / case statment ---------- */
 /* --------------------------------------------- */
 /* --------------------------------------------- */ 
-
 
     // if you want a shorter version of a ifstatment where you are checking a single requiment you can write a case statment
 
@@ -310,7 +307,6 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */
 
-
     // you can make a function to do the same code over and over with out re-writting it. Basicly you can create a set of instructions to a variable and the cann the variable... but call it a function
 
         // declare the name of the function
@@ -348,7 +344,6 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */
 
-
     // you can store more than one value in a variable and then find that value or its place in the listing of values
 
 
@@ -370,7 +365,6 @@
 
 
         // you can ad to the array a few differnet ways
-
         var products = ['shirt','shoes','pants','jacket'];
         products [4] = 'skirt';
         console.log(products);
@@ -381,6 +375,101 @@
         var products = ['shirt','shoes','pants','jacket'];
         products.push('skirt');
         console.log(products);
+
+
+        // you can add the begining of the array
+        var products = ['shirt','shoes','pants','jacket'];
+        products.unshift('heels');
+        console.log(products);
+
+
+        // you can remove the last item with pop
+        var products = ['shirt','shoes','pants','jacket'];
+        products.pop();
+        console.log(products);
+
+
+        // you can remove the firdt item with shift
+        var products = ['shirt','shoes','pants','jacket'];
+        products.shift();
+        console.log(products);
+
+
+        // find the location of one of the items in the array
+        var products = ['shirt','shoes','pants','jacket'];
+        console.log(products.indexOf('shoes')); // = 1... which is the 2nd position when yous taty with 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
