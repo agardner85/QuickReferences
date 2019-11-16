@@ -241,11 +241,11 @@
 
         var myName = 'Andrew';
         var age = 20;
-        age >= 18 ? console.log(myName + 'is of legal age and has full access') : console.log(myName + 'is a minor and has restricted access');
+        age >= 18 ? console.log(myName + ' is of legal age and has full access') : console.log(myName + 'is a minor and has restricted access');
 
         var myName = 'Andrew';
         var age = 16;
-        age >= 18 ? console.log(myName + 'is of legal age and has full access') : console.log(myName + 'is a minor and has restricted access');
+        age >= 18 ? console.log(myName + ' is of legal age and has full access') : console.log(myName + 'is a minor and has restricted access');
 
 
         // you can set a variable this way as well.
