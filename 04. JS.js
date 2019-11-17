@@ -399,26 +399,79 @@
         var products = ['shirt','shoes','pants','jacket'];
         console.log(products.indexOf('shoes')); // = 1... which is the 2nd position when yous taty with 0
 
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ----------------- Objects ------------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 
 
+    // how to build out a object that will contain multiple values and then search/call out those values.
+
+        // the object
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai','Ford','Chevy','GM','Honda']
+        }
 
 
+        // calling out the value in a object one of two ways
+        console.log(person.fName +' '+ person.lName);
+        
+        // or
+
+        console.log(person['hashelicopter']);
 
 
+        // calling a value form an array in the object
+        console.log(person.cars[1]);
 
 
+        // you can change the value of values in a object by redefining tgem.
+        person['hashelicopter'] = true;
+        person.fName = 'Andreeeeeeew';
+        console.log(person.fName +' '+ person.lName);
+        console.log(person['hashelicopter']);
 
 
+        // you can display all the values in the object with just calling the object
+        console.log(person);
 
 
+        // you can toss in a function inside the object
+
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai','Ford','Chevy','GM','Honda'],
+            pAge: function(personAge) {
+                return 2019 - personAge;
+            }
+        }
+
+        console.log(person.pAge(1988));
+        console.log(person);
 
 
+        // you can use a value inside the object to make a new value, even inside the function
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai','Ford','Chevy','GM','Honda'],
+            pAge: function() {
+                this.age = 2019 - this.birthYear;// new value being added to the object which values is based on other values already in the ovject.
+            }
+        }
 
-
-
-
-
-
+        person.pAge();
+        console.log(person);
 
 
 
