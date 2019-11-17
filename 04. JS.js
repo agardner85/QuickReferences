@@ -473,31 +473,125 @@
         person.pAge();
         console.log(person);
 
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ------------------ Loops -------------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+
+    // if you want to do something over and over again... usually a set amount of times.
+
+        // var i is set to a number
+        // i++ = that ever time thr loop is run, it will take the value of i and add one to it.
+        // then since the condition is to run the loop until i is less than 10... it will count up from zero to nine.
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai','Ford','Chevy','GM','Honda'],
+            pAge: function() {
+                this.age = 2019 - this.birthYear;
+            }
+        }
+
+        // setting the length of the array to a variable
+        var loopHowManyTimes = person.cars.length;
+        for (var i = 0; i < loopHowManyTimes; i++) {
+            console.log(person.cars[i]);
+        }
+
+
+        // or
+
+
+        // adding the length of the array in the for loop
+        for (var i = 0; i < person.cars.length; i++) {
+            console.log(person.cars[i]);
+        }
+
+
+
+        //while loop
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai','Ford','Chevy','GM','Honda'],
+            pAge: function() {
+                this.age = 2019 - this.birthYear;
+            }
+        }
+
+        var i = 0;
+        while (i < person.cars.length){
+            console.log(person.cars[i]);
+            i++
+        }
+
+
+        // continue and break in a loop
+
+        //continue, if it finds somthing that does not match its conditions, it will skip that value and continue
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai',2015,'Ford','Chevy',1998,'GM','Honda'], // note that numbers have been added to the arry
+            pAge: function() {
+                this.age = 2019 - this.birthYear;
+            }
+        }
+
+        for (var i = 0; i < person.cars.length; i++) {
+            if (typeof person.cars[i] !== 'string') continue;
+                console.log(person.cars[i]);
+        }
+
+        // or
+
+        for (var i = 0; i < person.cars.length; i++) {
+            if (typeof person.cars[i] !== 'string') {
+                continue;
+            } 
+               console.log(person.cars[i]);  
+        }
 
 
 
 
+        //break, if it finds somthing that does not match its conditions, it will stop the loop
+        var person = {
+            fName: 'Andrew',
+            lName: 'Gardner',
+            birthYear: 1985,
+            hashelicopter: false,
+            cars: ['Tesla','Hyundai',2015,'Ford','Chevy',1998,'GM','Honda'], // note that numbers have been added to the arry
+            pAge: function() {
+                this.age = 2019 - this.birthYear;
+            }
+        }
 
+        for (var i = 0; i < person.cars.length; i++) {
+            if (typeof person.cars[i] !== 'string') break;
+                console.log(person.cars[i]);
+        }
 
+        // or
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        for (var i = 0; i < person.cars.length; i++) {
+            if (typeof person.cars[i] !== 'string') {
+                break;
+            } 
+               console.log(person.cars[i]);  
+        }
 
 
 
