@@ -593,6 +593,48 @@
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
+/* ----------- Function contructor ------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+        
+    //function contructor allows you you to make new objects and define/fill them with values as you pas through the code
+
+        // create the template the information will folow
+        var bob = {
+            name:'Bob',
+            yearOfStart: 2005,
+            jobTitle:'Web Guy',
+        };
+
+        // create a contructor the same as a variable
+        // the constructor will be set to look at its self for the values used to calculated based on the values passed into it
+        var Person = function(name, yearOfStart, jobTitle) {
+            this.name = name;
+            this.yearOfStart = yearOfStart;
+            this.jobTitle = jobTitle;
+        }
+
+        // Once the constructor is set, you can the use it as a variable and add to it using 'prototype'
+        Person.prototype.calcJobTime = function () {
+            console.log(2019 - this.yearOfStart)
+        }
+
+        // once the constructor is done, you can then call the constructor/variable and pass your information into it
+        // it will take the values and pass it through constructor making a new object and then run the objects values trhough it to generate the correct information.
+        var bob = new Person ('BoB', 2005, 'Web guy');
+        var jane = new Person ('Jane', 2008, 'Designer');
+        var bill = new Person ('Bill', 2010, 'IT guy');
+
+        bob.calcJobTime();
+        jane.calcJobTime();
+        bill.calcJobTime();
+
+        // even though the object has not been define by hand... the constructor built the object for us
+        console.log(jane)
+
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 /* ------------------- DOM --------------------- */
 /* --------------------------------------------- */
 /* --------------------------------------------- */
