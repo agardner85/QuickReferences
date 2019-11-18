@@ -565,8 +565,6 @@
         }
 
 
-
-
         //break, if it finds somthing that does not match its conditions, it will stop the loop
         var person = {
             fName: 'Andrew',
@@ -593,23 +591,70 @@
                console.log(person.cars[i]);  
         }
 
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ------------------- DOM --------------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 
 
+    // you can update html and css by editing the DOM
+
+        /*
+
+        <div id="start" class="blargness">hello how are you</div>
+
+        */
+
+        // how to select the html to edit based on a a ID
+        var newVar = 34
+        document.querySelector('#start').textContent = newVar;
+
+        // or
+
+        document.querySelector('#start').innerHTML = '<strong>The new text</strong>';
+
+        // you can use the same selection method to add/edit css by placing inline css
+        // note this time we are targeting a class
+        document.querySelector('.blargness').style.background = '#cccccc';
 
 
+        // you can add and remove clases
+        document.querySelector('.blargness').classList.add('buttonThing');
+        document.querySelector('.blargness').classList.remove('buttonThing');
+
+        //you can also have a class add and remove its self by seeif if that class exisits and then do the oposite of its current state with toggle
+        document.querySelector('.blargness').classList.toggle('active');
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ------------ Events / listener -------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 
 
+    // this is how when you interact with elements on the page, you can get a reponse. the response is then what you want to happen
+    // this is a sumer simple version, there are many events that you can monitor to do things.
 
+        /*
 
+        <div id="start" class="blargness buttonThing">click me</div>
 
+        */
 
+        // listener for click events
 
+        function buttonFunction () {
+            document.querySelector('.buttonThing').style.background = '#cccccc';
+        }
 
+        // this will call a function to exicute
+        document.querySelector('.buttonThing').addEventListener('click', buttonFunction);
 
-
-
-
-
+        // if you do not want to call a function, you can define that it does by its self.
+        document.querySelector('.buttonThing').addEventListener('click', function() {
+            document.querySelector('.buttonThing').style.background = '#cccccc';
+         });
 
 
 
