@@ -599,12 +599,59 @@
         }
 
 /* --------------------------------------------- */
+/* --------- Array value manipulation ---------- */
+/* ---------- Call back functions -------------- */
+/* ------ Functions as function argument ------- */
 /* --------------------------------------------- */
-/* ----------- Function contructor ------------- */
+
+        // you can use a function to build or rebuild an array of values.
+        var years = [1980,1982,1985,1990,2000,2010];
+        console.log(years);
+
+        // this function is going to grab an array and pass it through another funtions that is defined below
+        // this function will not product anything by its self and need the suppporting functions below
+        function yearsUpdate(arrData, yearUpdateFunction){
+            var newArray = []; // empty array
+            console.log (newArray + ' | this is the new empty array');
+            // loop through each value of the array and do 'something'
+            for (var i = 0; i < arrData.length; i++) {
+                // push adds the new value to the end of the array.
+                // in this example the new value in the array has had a number added or subtracted from it based on which one function below was used as a value passed into this parent funtion
+                newArray.push(yearUpdateFunction(arrData[i]));
+                console.log (newArray); // this console.log will show thr array being rebuilt interation by interation until all values in the array has been passed
+            }
+            return newArray;
+        }
+
+        // This location/value of the value in the array will have 30 added to it.
+        function yearIncrease(aVal) {
+            return 30 + aVal;
+        }
+
+        // This location/value of the value in the array will have 5 subtracted from it.
+        function yearDecrease(aVal) {
+            return aVal - 5;
+        }
+
+        // will pass the array and the desired funtion through the parent funtion to produce the desired result.
+        var whatIsYearUp = yearsUpdate(years, yearIncrease);
+        var whatIsYearDown = yearsUpdate(years, yearDecrease);
+
+        // you can then use the new array and pass it through the parent function again if needed
+        var whatIsYearUpAgain = yearsUpdate(whatIsYearUp, yearIncrease);
+
+        // will display the value of new array based on the location that was called.
+        console.log(whatIsYearUp[1]);
+        console.log(whatIsYearDown[4]);
+        console.log(whatIsYearUpAgain[3]);
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+/* ------------- Object contructor ------------- */
 /* --------------------------------------------- */
 /* --------------------------------------------- */
         
-    //function contructor allows you you to make new objects and define/fill them with values as you pas through the code
+    //Object contructor allows you you to make new objects and define/fill them with values as you pas through the code
 
         // create the template the information will folow
         var bob = {
@@ -638,7 +685,6 @@
 
         // even though the object has not been define by hand... the constructor built the object for us
         console.log(jane)
-
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
