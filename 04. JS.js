@@ -1,5 +1,17 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */
+/* ----------------  Quickies  ---------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */ 
+    
+
+    // convert all text in a string to lower case
+        var sentence = 'Each Of THESE leTTERs will retURn loWerCase'
+        sentence = sentence.toLowerCase();
+        console.log(sentence)
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 /* ----------------  Variables  ---------------- */
 /* --------------------------------------------- */
 /* --------------------------------------------- */                                          
@@ -55,6 +67,43 @@
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
+/* -------------  Calling the URL  ------------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+
+    // get the full current url of the page the user is on. Will not pick up any paramiters (anything after the ?)
+        console.log(window.location.href)
+
+
+    // breaking down all parts of the url
+        //window.location.replace(window.location.href+'?hello=greeting&wave=no#title1');
+
+        var parser = document.createElement('a');
+        //parser.href = window.location.href
+        parser.href = "http://example.com:3000/pathname/?hello=greeting&wave=no#title1";
+
+        console.log('protocal: '+parser.protocol); // = "http:"
+        console.log('hostname: '+parser.hostname); // = "example.com"
+        console.log('port: '+parser.port); // = "3000"
+        console.log('pathname: '+parser.pathname); // = "/pathname/"
+        console.log('hash: '+parser.hash); // = "#hash"
+        console.log('host: '+parser.host); // = "example.com:3000"
+        console.log('paramaters: '+parser.search); // = "?search=test"
+
+        var paramArray = parser.search.split('&');
+        console.log(paramArray);
+
+        // need to finish this based on this code
+        //https://www.sitepoint.com/get-url-parameters-with-javascript/
+
+        for (var i = 0; i < paramArray.length; i++) {
+            console.log('paramater'+[i]+': '+paramArray[i])
+        }
+
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 /* ------  Operators - Math - true/false  ------ */
 /* --------------------------------------------- */
 /* --------------------------------------------- */
@@ -94,6 +143,7 @@
         console.log(numOneBigger2); // = true
 
     // find out of a number is odd or even using a function.
+    // % operator returns where or not the value of the devision equation is a full number or has a remainder... it  will return a 1 or 0 value.
         function isOdd(num) { return num % 2;}
         console.log("1 is " + isOdd(1));
         console.log("2 is " + isOdd(2));
