@@ -4,7 +4,6 @@
 /* --------------------------------------------- */
 /* --------------------------------------------- */ 
     
-
     // convert all text in a string to lower case
         var sentence = 'Each Of THESE leTTERs will retURn loWerCase'
         sentence = sentence.toLowerCase();
