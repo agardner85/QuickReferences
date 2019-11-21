@@ -9,6 +9,13 @@
         sentence = sentence.toLowerCase();
         console.log(sentence); // = each of these letters will return lowercase
 
+
+    // see if somthing exsists with in a string.
+        var sentence = 'Each Of THESE leTTERs will retURn loWerCase'
+        if (sentence.toLowerCase().indexOf('return') != 0) {
+            console.log(sentence.toLowerCase()); // = each of these letters will return lowercase
+        }
+
 /* --------------------------------------------- */
 /* --------------------------------------------- */
 /* ----------------  Variables  ---------------- */
