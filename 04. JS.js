@@ -7,7 +7,7 @@
     // convert all text in a string to lower case
         var sentence = 'Each Of THESE leTTERs will retURn loWerCase'
         sentence = sentence.toLowerCase();
-        console.log(sentence)
+        console.log(sentence); // = each of these letters will return lowercase
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
@@ -74,32 +74,36 @@
     // get the full current url of the page the user is on. Will not pick up any paramiters (anything after the ?)
         console.log(window.location.href)
 
-
     // breaking down all parts of the url
         //window.location.replace(window.location.href+'?hello=greeting&wave=no#title1');
 
-        var parser = document.createElement('a');
-        //parser.href = window.location.href
-        parser.href = "http://example.com:3000/pathname/?hello=greeting&wave=no#title1";
+        var urlParser = document.createElement('a');
+        //urlParser.href = window.location.href
+        urlParser.href = "http://example.com:3000/pathname/?hello=greeting&wave=no#title1";
 
-        console.log('protocal: '+parser.protocol); // = "http:"
-        console.log('hostname: '+parser.hostname); // = "example.com"
-        console.log('port: '+parser.port); // = "3000"
-        console.log('pathname: '+parser.pathname); // = "/pathname/"
-        console.log('hash: '+parser.hash); // = "#hash"
-        console.log('host: '+parser.host); // = "example.com:3000"
-        console.log('paramaters: '+parser.search); // = "?search=test"
-
-        var paramArray = parser.search.split('&');
+        console.log('protocal: '+urlParser.protocol); // = "http:"
+        console.log('hostname: '+urlParser.hostname); // = "example.com"
+        console.log('port: '+urlParser.port); // = "3000"
+        console.log('pathname: '+urlParser.pathname); // = "/pathname/"
+        console.log('hash: '+urlParser.hash); // = "#hash"
+        console.log('host: '+urlParser.host); // = "example.com:3000"
+        console.log('paramaters: '+urlParser.search); // = "?search=test"
+        
+        // convert the 'urlParser.search' into a array of values.
+        var paramArray = urlParser.search.replace('?','').split('&');
         console.log(paramArray);
 
-        // need to finish this based on this code
-        //https://www.sitepoint.com/get-url-parameters-with-javascript/
-
+        // write out all of the paramaters names and values
+        var paramSplit = '';
         for (var i = 0; i < paramArray.length; i++) {
-            console.log('paramater'+[i]+': '+paramArray[i])
+           paramSplit = paramArray[i].split('=');
+           console.log('paramater'+[i+1]+' = paramaterName: '+paramSplit[0]+' | paramaterValue: '+paramSplit[1]);
         }
 
+        // write out a spacific paramaters name and value.
+        paramSingleSplit = paramArray[1].split('=');
+        console.log(paramSingleSplit[0]);
+        console.log(paramSingleSplit[1]);
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
