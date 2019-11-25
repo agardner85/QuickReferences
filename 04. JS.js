@@ -464,6 +464,19 @@
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
+/* ------- Invoked Function Expressions -------- */
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+    // how to privatly minipulate values in a funtion
+    // this function looks weird becould it lives with in a ()
+        (function (manipulation) {
+            var aNumber = Math.random()*10;
+            console.log('the random number is '+ aNumber +' and the number passed through is '+ manipulation)
+        })(12);
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
 /* ------------------ Arrays ------------------- */
 /* --------------------------------------------- */
 /* --------------------------------------------- */
