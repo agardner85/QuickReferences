@@ -404,6 +404,50 @@
         yearsLeftToDeath (1992, 'Bill');
         yearsLeftToDeath (2007, 'Bob');
 
+/* --------------------------------------------- */
+/* ------------- Class Functions --------------- */
+/* --------------------------------------------- */
+/* ------ Function insdie a function ----------- */
+/* --------------------------------------------- */
+
+    // you can set the value of a var to the result of a function.
+    // you can also place a function inside a funtion and then pass 2 arguments through the variable to satisfy both function at once.
+
+
+        function yourJobDescrition(job) {
+            if (job === 'designer') {
+                return function (name) {
+                    console.log(job +': '+name+' makes the pretty things')
+                }
+            }
+            else if (job === 'backend') {
+                return function (name) {
+                    console.log(job +': '+name+' stores the data')
+                }
+            }
+            else if (job === 'frontend') {
+                return function (name) {
+                    console.log(job +': '+name+' makes the pretty stuff move')
+                }
+            }
+            else {
+                return function (name) {
+                    console.log('i must be in the wrong place')
+                }
+            }
+        }
+
+        var designerQuestion = yourJobDescrition('designer');
+        var backendQuestion = yourJobDescrition('backend');
+        var frontendQuestion = yourJobDescrition('frontend');
+
+        designerQuestion('Bill');
+        backendQuestion('Bill');
+        backendQuestion('Dan');
+        frontendQuestion('Jane');
+        designerQuestion('Mark');
+
+        yourJobDescrition('designer')('Andrew');
 
 /* --------------------------------------------- */
 /* --------------------------------------------- */
@@ -801,7 +845,6 @@
         document.querySelector('.buttonThing').addEventListener('click', function() {
             document.querySelector('.buttonThing').style.background = 'red';
         });
-
 
 
 
