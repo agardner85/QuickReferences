@@ -16,6 +16,19 @@
             console.log(sentence.toLowerCase()); // = each of these letters will return lowercase
         }
 
+    // random number
+        var randomnumber = Math.random()
+        console.log(randomnumber);
+
+        // full number with decimal
+        var randomnumber = Math.random() * 10
+        console.log(randomnumber);
+
+        // remove the deicmal
+        var randomnumber = Math.random() * 10
+        randomnumber = parseInt(randomnumber);
+        console.log(randomnumber);
+
 /* --------------------------------------------- */
 /* --------------------------------------------- */
 /* ----------------  Variables  ---------------- */
