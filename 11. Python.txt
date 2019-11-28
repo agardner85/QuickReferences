@@ -141,8 +141,117 @@ print ('My name is ' +['Andrew', 'Bob', 'Dan', 'Mary'][0])
 
 
 #
-# array = lists
+# dictionaries / objects
 #
+
+{'Name':'Andrew','Age':35,'Pet':'Cat'}
+
+
+
+# you can call the value from its key by calling it directly after
+{'Name':'Andrew','Age':35,'Pet':'Cat'}['Name']
+
+{'Name':'Andrew','Age':35,'Pet':'Cat'}['Pet']
+
+
+print ({'Name':'Andrew','Age':35,'Pet':'Cat'}['Name']+ ' has a pet '+{'Name':'Andrew','Age':35,'Pet':'Cat'}['Pet'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# Variables
+#
+
+Greeting = 'Hello, how are you?'
+print(Greeting)
+
+Greeting = Greeting.split(',')[1]
+print(Greeting)
+
+
+print(Greeting+' are you ding ok?')
+
+
+
+aNum = 1
+newnum = 2
+
+# this will follow math order of operations 2 * 2 + 1
+print(aNum + newnum * newnum) # = 5
+
+
+
+
+
+
+
+#
+# Functions
+#
+
+
+print() # print text to screen
+
+str() # convert a number to a string, str(5)='5'  do math inside of a string str(5+4)=9
+
+int() # convert a number only string to a number int('5')=5
+
+float() # convert a string toa. number float('5.5')=5.5
+
+bool() # convert string "True" to a boolean True value bool('True')
+
+len() # how long is a value len('Andrew') = 5
+# len(['Andrew','Bob','Bill','Jane'])
+
+sorted() # assort an array by hi to low sorted([17,45,76,98,34,87,11])
+# sorted(['a','A','f','O','34','87','Q'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
