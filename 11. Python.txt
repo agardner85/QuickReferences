@@ -88,8 +88,21 @@ hello = wont work
 
 
 #
-# boolean t/f
+# boolean - True/False.   Truse / False is case sensative
 #
+
+5==5 # = True
+5==4 # = False
+
+
+5 is 5 # = True
+5 is 4 # = False
+
+
+5 is not 4 # = True
+
+
+
 
 
 
@@ -105,6 +118,39 @@ hello = wont work
 #
 # array = lists
 #
+
+['Andrew', 'Bob', 'Dan', 'Mary']
+
+# call a value from the array
+['Andrew', 'Bob', 'Dan', 'Mary'][1]
+
+
+print ('My name is ' +['Andrew', 'Bob', 'Dan', 'Mary'][0])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# array = lists
+#
+
+
+
+
+
+
+
+
 
 
 
