@@ -87,6 +87,30 @@ hello = wont work
 
 
 
+#
+# boolean t/f
+#
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# array = lists
+#
+
+
+
+
+
+
 
 
 #
