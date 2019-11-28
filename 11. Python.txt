@@ -1,4 +1,3 @@
-
 Python - Interpreter
 
 install homebrew - https://brew.sh/
@@ -28,18 +27,43 @@ terminal cmd: python3
 // must be in the python interpreter
 //
 
+
+//
+// working with numbers
+//
+
+
+
+
+
 how to rteturn a string
 terminal cmd: print("hi there")
 
 how to do sinple math
 terminal cmd: 4+6
 
+'5' + '6' = '56' // it is adding the 2 strings together
+
+5.34 * 2.1 = 11.214
+
+convert string to number if the string is only a number
+
+int('5') + int('7')
 
 
 
+//
+// strings
+//
 
+hello = wont work
 
+'hello' = string becouse it is wrapped in quotes
 
+// escape charaters
+"don't" // exchange wrapping quotes from single to double
+
+'don\'t' // or use the escapcing char to allow the character \
 
 
 
@@ -104,15 +128,18 @@ Install pycharm - https://www.jetbrains.com/pycharm/download/#section=mac
 
 
 
+//
+// In pycharm
+//
 
 
+View > tools window > python console // this will allow you to run the python interpreter
+View > tools window > terminal // this will allow you to run terminal and its directory is set from this project directory.
 
 
-
-
-
-
-
+//
+// Segtting an auto run
+//
 
 
 
