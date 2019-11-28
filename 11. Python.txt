@@ -10,9 +10,9 @@ check python version
 terminal cmd: python --version // this will more than likly return python v2
 
 check puthon v3
-terminal cmd: python3 --version // this should return pythong v3 that is installed from homebrew
+terminal cmd: python3 --version // this should return python v3 that is installed from homebrew
 
-to verify pythong is installed correctly you can drop down to the interpreter
+to verify python is installed correctly you can drop down to the interpreter
 terminal cmd: python3
 
 
@@ -74,6 +74,21 @@ hello = wont work
 # doing math inside a sgtring
 'Andrew ' + 'Gardner ' + 'has ' + str(6*4) +' bucks'
 
+# split
+'Andrew:Gardner:Dog:Cat'.split(':')
+
+# python starts counting at 0 like javascript
+# print only the desired value form the array generated from the split
+'Andrew:Gardner:Dog:Cat'.split(':')[0]
+
+
+
+
+
+
+
+
+
 #
 # how to navigate terminal directories
 #
@@ -112,7 +127,7 @@ ctrl+x = exit
 
 
 #
-# how to call a pythong script
+# how to call a python script
 #
 
 
@@ -144,7 +159,7 @@ View > tools window > terminal // this will allow you to run terminal and its di
 
 
 #
-# Segtting an auto run
+# Setting an auto run
 #
 
 
