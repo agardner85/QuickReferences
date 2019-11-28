@@ -221,6 +221,69 @@ sorted() # assort an array by hi to low sorted([17,45,76,98,34,87,11])
 
 
 
+# ------------
+# ------------
+# ------------
+
+
+
+
+print('i am working')
+
+def myFunction():
+    print('this is a new function')
+    print(': will star the function after defiening the function name')
+    print('the functions will execute what ever is directly below the function name and indented')
+    print('when you stop indenting the code, the function will know to end its self')
+
+myFunction()
+
+
+
+
+
+def myFunction2(str1, str2):
+   print(str1)
+   print(str2)
+
+myFunction2('hello','my name is Andrew')
+myFunction2('This is a','python function with perams')
+
+
+# ------------
+# ------------
+# ------------
+
+
+
+def myNameAge(name, age):
+   print('Hello my name is '+name+' and i am '+str(age)+' years old')
+
+myNameAge('Bob', 43)
+
+
+def myNameAge2(name, age):
+   print('Hello my name is',name,'and i am',age,'years old')
+
+myNameAge2('John', 18)
+
+
+def myNameAge3(name='Person', age='Number'):
+   print('Hello my name is',name,'and i am',age,'years old')
+
+myNameAge3()
+
+
+def myNameAge4(name='Person', age='Number'):
+   print('Hello my name is',name,'and i am',age,'years old')
+
+myNameAge4('Jane')
+
+
+
+# ------------
+# ------------
+# ------------
 
 
 
