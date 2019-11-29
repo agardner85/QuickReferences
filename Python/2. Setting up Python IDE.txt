@@ -1,0 +1,18 @@
+Install java
+https://www.java.com/en/download/mac_download.jsp
+
+
+
+Install pycharm
+https://www.jetbrains.com/pycharm/download/#section=mac
+
+
+Viewing the python console & terminal
+View > tools window > python console // this will allow you to run the python interpreter
+View > tools window > terminal // this will allow you to run terminal and its directory is set from this project directory.
+
+
+
+Setting up 'RUN'
+Run > Edit configurations
+Find and select the script / path of thre script to use in the run command
