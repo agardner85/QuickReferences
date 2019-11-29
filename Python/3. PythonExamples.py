@@ -58,6 +58,51 @@ true3 = 5 is not 4 # = True
 false3 = 5 is not 5 # = False
 
 
+# -----------------------------
+#variables are scopp limited.
+# this works like js ES6 'let' and 'const'... the var will not allow you to edit it unless you call a variable that is not define with in a function... thus a globasl variable.
+
+previousTest = 10
+runTest = True
+
+def doAThing(): # this is a function and covered below
+    global runTest  # = the run variable that was defined out side this function on the global level
+    global previousTest
+
+    print(previousTest,'|',runTest)
+doAThing()
+
+
+
+
+
+# -----------------------------
+# ------------ Math  ----------
+# -----------------------------
+
+def add(x,y):
+    return x+y
+
+def subtract(x,y):
+    return x-y
+
+def multiply(x,y):
+    return x*y
+
+def divide(x,y):
+    return x/y
+
+
+addTest = add(3,5)
+subtractionTest = subtract(3,5)
+multiplyTest = multiply(3,5)
+divisionTest = divide(3,5)
+
+print(addTest)
+print(subtractionTest)
+print(multiplyTest)
+print(divisionTest)
+
 
 
 
@@ -176,6 +221,39 @@ print(Greeting)
 
 print(Greeting+' are you ding ok?')
 
+# -----------------------------
+# calculator script
+print('Type "quit" to exit\n')
+
+
+previous = 0
+run = True
+
+def doMath():
+    global run # = the run variable that was defined out side this function on the global level
+    global previous
+    equation = ''
+
+    if previous == 0:
+        equation = input('Enter you equations: ')
+    else:
+        equation = input(str(previous))
+
+    if equation == 'quit':
+        print('Calc stoping')
+        run = False
+    else:
+        #previous = eval(equation) # eval is a bad function to use as it will also execute pythong code inside the input and needs to be sanatized.
+        equation = re.sub('[a-zA-Z,.:()`" "]','',equation)
+        if previous == 0:
+            previous = eval(equation)
+        else:
+            previous = eval(str(previous) + equation)
+        print('Yor answer is:',previous)
+
+while run:
+    doMath()
+
 
 
 
@@ -210,7 +288,6 @@ while run:
         currentNum += 1
 
 # -----------------------------
-
 # more indepth while loop
 playerHP = 290
 enemyAtkLow = 20
@@ -237,7 +314,6 @@ while playerHP > 0:
 # -----------------------------
 # ---------- Classes ----------
 # -----------------------------
-
 
 class Enemy: # you would then be able to call / use this class in another script by calling it 'from ScriptFileName import Enemy'
     enemyHP = 200
