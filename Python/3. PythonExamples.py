@@ -9,7 +9,7 @@ import random
 import re
 
 # import a class from a module
-# from myModule import mod1, mod2, mod3
+# from (scriptName)myModule import (class)mod1, mod2, mod3
 
 
 
