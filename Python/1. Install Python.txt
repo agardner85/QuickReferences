@@ -1,0 +1,24 @@
+Install python:
+
+install homebrew - https://brew.sh/
+terminal cmd: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+
+install python
+terminal cmd: brew install python
+
+
+
+check python version
+terminal cmd: python --version // this will more than likly return python v2
+
+
+
+check puthon v3
+terminal cmd: python3 --version // this should return python v3 that is installed from homebrew
+
+
+
+to verify python is installed correctly you can drop down to the interpreter
+terminal cmd: python3
