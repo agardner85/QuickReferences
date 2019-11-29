@@ -1,3 +1,233 @@
+Python - Interpreter
+
+install homebrew - https://brew.sh/
+terminal cmd: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+install python
+terminal cmd: brew install python
+
+check python version
+terminal cmd: python --version // this will more than likly return python v2
+
+check puthon v3
+terminal cmd: python3 --version // this should return python v3 that is installed from homebrew
+
+to verify python is installed correctly you can drop down to the interpreter
+terminal cmd: python3
+
+
+
+
+
+
+
+
+
+#
+# must be in the python interpreter
+#
+
+
+#
+# working with numbers
+#
+
+
+
+
+
+how to rteturn a string
+terminal cmd: print("hi there")
+
+how to do sinple math
+terminal cmd: 4+6
+
+'5' + '6' = '56' # it is adding the 2 strings together
+
+5.34 * 2.1 = 11.214
+
+convert string to number if the string is only a number
+
+int('5') + int('7')
+
+
+
+#
+# strings
+#
+
+hello = wont work
+
+'hello' = string becouse it is wrapped in quotes
+
+# escape charaters
+"don't" # exchange wrapping quotes from single to double
+
+'don\'t' # or use the escapcing char to allow the character \
+
+#concatinating string
+'Andrew ' + 'Gardner'
+
+#include a number inside a string
+'Andrew ' + 'Gardner ' + 'has ' + str(6) +' bucks'
+
+# doing math inside a sgtring
+'Andrew ' + 'Gardner ' + 'has ' + str(6*4) +' bucks'
+
+# split
+'Andrew:Gardner:Dog:Cat'.split(':')
+
+# python starts counting at 0 like javascript
+# print only the desired value form the array generated from the split
+'Andrew:Gardner:Dog:Cat'.split(':')[0]
+
+
+
+
+
+
+
+#
+# boolean - True/False.   Truse / False is case sensative
+#
+
+5==5 # = True
+5==4 # = False
+
+
+5 is 5 # = True
+5 is 4 # = False
+
+
+5 is not 4 # = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# array = lists
+#
+
+['Andrew', 'Bob', 'Dan', 'Mary']
+
+# call a value from the array
+['Andrew', 'Bob', 'Dan', 'Mary'][1]
+
+
+print ('My name is ' +['Andrew', 'Bob', 'Dan', 'Mary'][0])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# dictionaries / objects
+#
+
+{'Name':'Andrew','Age':35,'Pet':'Cat'}
+
+
+
+# you can call the value from its key by calling it directly after
+{'Name':'Andrew','Age':35,'Pet':'Cat'}['Name']
+
+{'Name':'Andrew','Age':35,'Pet':'Cat'}['Pet']
+
+
+print ({'Name':'Andrew','Age':35,'Pet':'Cat'}['Name']+ ' has a pet '+{'Name':'Andrew','Age':35,'Pet':'Cat'}['Pet'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# Variables
+#
+
+Greeting = 'Hello, how are you?'
+print(Greeting)
+
+Greeting = Greeting.split(',')[1]
+print(Greeting)
+
+
+print(Greeting+' are you ding ok?')
+
+
+
+aNum = 1
+newnum = 2
+
+# this will follow math order of operations 2 * 2 + 1
+print(aNum + newnum * newnum) # = 5
+
+
+
+
+
+
+
+#
+# Functions
+#
+
+
+print() # print text to screen
+
+str() # convert a number to a string, str(5)='5'  do math inside of a string str(5+4)=9
+
+int() # convert a number only string to a number int('5')=5
+
+float() # convert a string toa. number float('5.5')=5.5
+
+bool() # convert string "True" to a boolean True value bool('True')
+
+len() # how long is a value len('Andrew') = 5
+# len(['Andrew','Bob','Bill','Jane'])
+
+sorted() # assort an array by hi to low sorted([17,45,76,98,34,87,11])
+# sorted(['a','A','f','O','34','87','Q'])
+
+
+
+
+# ------------
+# ------------
+# ------------
+
+
+
+
 print('i am working')
 
 def myFunction():
@@ -224,8 +454,212 @@ def doMath():
             previous = eval(str(previous) + equation)
         print('Yor answer is:',previous)
 
-while run:
-    doMath()
+#while run:
+    #doMath()
+
+
+
+# ------------
+# - imports
+# ------------
+
+# if you want to import multiple modules you would place each on a seperate line
+# import os
+# import sys
+
+
+# import a class from a module
+# from myModule import mod1, mod2, mod3
+
+#self = this from js
+#self work while inside a class
+
+import random
+
+print('Classes')
+
+class Enemy:
+    enemyHP = 200
+
+    def __init__(self, atkLow, atkHi):
+        self.atkLow = atkLow
+        self.atkHi = atkHi
+
+    def getAtk(self):
+        print(self.atkLow)
+
+    def getEnemyHP(self):
+        print('Enemy HP is',self.enemyHP - self.atkLow)
+
+enemy1 = Enemy(20, 75)
+enemy1.getAtk()
+enemy1.getEnemyHP()
+
+enemy2 = Enemy(12,56)
+enemy2.getAtk()
+enemy2.getEnemyHP()
+
+
+'''
+class Enemy:
+    atkLow = 60
+    atkHi = 80
+
+    def getAtk(self):
+        print(self.atkLow)
+
+enemy1 = Enemy()
+enemy1.getAtk()
+
+enemy2 = Enemy()
+enemy1.getAtk()
+
+
+playerHP = 290
+enemyAtkLow = 20
+enemyAtkHi = 65
+
+
+while playerHP > 0:
+    dmg = random.randrange(enemyAtkLow, enemyAtkHi)
+    playerHP = playerHP - dmg
+
+    if playerHP <= 10:
+        playerHP = 10
+        print('your HP is to low to continue')
+        break
+    else:
+        print('you were hit for',dmg,'and your new hp is',playerHP)
+
+'''
+
+
+
+
+
+
+# ------------
+# ------------
+# ------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# how to navigate terminal directories
+#
+
+how to get to a home directories
+terminal cmd: cd ~/Documents
+terminal cmd: cd ~/Desktop
+
+once you reach a home directory, you can then navigate the next level of folder with 'ls'
+terminal cmd: ls
+
+you can then type the next file or folder you wish to interact with
+terminal cmd: cd 'foldername'
+
+
+
+#
+# how to create a new file
+#
+
+terminal cmd: nano test.py
+
+
+#
+# nano shortcuts
+#
+
+ctrl+o = save
+ctrl+x = exit
+
+
+
+#
+# Python scripts
+#
+
+
+#
+# how to call a python script
+#
+
+
+terminal cmd: poython3 'file'
+terminal cmd: poython3 test.py
+
+
+
+
+
+#
+# Python Workspace
+#
+
+
+Install java - https://www.java.com/en/download/mac_download.jsp
+
+Install pycharm - https://www.jetbrains.com/pycharm/download/#section=mac
+
+
+
+#
+# In pycharm
+#
+
+
+View > tools window > python console // this will allow you to run the python interpreter
+View > tools window > terminal // this will allow you to run terminal and its directory is set from this project directory.
+
+
+#
+# Setting an auto run
+#
 
 
 
