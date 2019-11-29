@@ -16,3 +16,4 @@ View > tools window > terminal // this will allow you to run terminal and its di
 Setting up 'RUN'
 Run > Edit configurations
 Find and select the script / path of thre script to use in the run command
+You can now run that script in the same area as the python console and cmd panel
