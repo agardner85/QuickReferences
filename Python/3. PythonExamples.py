@@ -75,6 +75,55 @@ doAThing()
 
 
 
+# -----------------------------
+# ------ Calling the URL  -----
+# -----------------------------
+
+# you need to download 2 packages to help with the url
+# pip3 install requests in the venv console
+# pip3 install pillow in the venv console
+
+
+
+# ------ downloading a file  -----
+
+
+import requests
+from io import BytesIO
+from PIL import Image
+
+
+# set the url of the file to a var
+r1 = requests.get('https://wallpapercave.com/wp/6TQsohO.jpg')
+r2 = requests.get('https://wallpapercave.com/wp/vZoesBr.png')
+
+# find the status of the file using status_code. 200 = all is good
+print('status:',r1.status_code)
+print('status:',r2.status_code)
+
+# get infomration about the image
+image1 = Image.open(BytesIO(r1.content))
+image2 = Image.open(BytesIO(r2.content))
+
+# set the location of where you want to place the file you are to download
+path1 = './image1.'+image1.format
+path2 = './image2.'+image2.format
+
+# display the imaformtion from the images
+print(image1.size, image1.format, image1.mode)
+print(image2.size, image2.format, image2.mode)
+
+#download the file
+try:
+    image1.save(path1, image1.format)
+    image2.save(path2, image2.format)
+except IOError:
+    print('download failed')
+
+
+
+
+
 
 # -----------------------------
 # ------------ Math  ----------
