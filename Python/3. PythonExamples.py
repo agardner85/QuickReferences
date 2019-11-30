@@ -84,8 +84,39 @@ doAThing()
 # pip3 install pillow in the venv console
 
 
+# -- downloading HTML from a page  --
+
+
+import requests
+
+# peramaters to add on the end of a url
+params = {'type':'pizza','location':'near','place':'dominos'}
+
+# the yrl you want to pull information from
+r = requests.get("https://www.bing.com/search",params=params)
+
+# verify the page's health is good
+print('status:',r.status_code)
+
+# write out the full url and print it to console
+print(r.url)
+
+# grab all the html on the page and print it to console
+print(r.text)
+
+
+# generate a new file to memory and write the html of the requested page to it alonh with a path to save it if it is to be saved
+f = open('./page.html','w+')
+
+# save the new page and the requested tetxt/html to the file and path set above.
+f.write(r.text)
+
+
+
 
 # ------ downloading a file  -----
+
+
 
 
 import requests
@@ -119,6 +150,41 @@ try:
     image2.save(path2, image2.format)
 except IOError:
     print('download failed')
+
+
+
+
+# ------ Submitting informtion to post  -----
+
+
+
+# set the data to be set to the fields on the page... you will need to know these ahead of time some how
+my_data = {'name':'Andrew','email':'hihi@aol.com'}
+
+# set the page where the post goes to that will be reciving the information alos with the data that you set up.
+r = requests.post('http://www.w3schools.com/php/welcome.php', data=my_data)
+
+
+
+
+# ---------- JSON -----------
+
+
+
+test_json = {
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "hobbies": ["running", "sky diving","singing"],
+                "age": 35,
+                "children": [
+                    {"firstName": "Alice", "age": 6},
+                    {"firstName": "Bob","age": 8}
+                ]
+            }
+
+
+print(test_json)
+print(test_json['children'][0]['firstName'])
 
 
 
