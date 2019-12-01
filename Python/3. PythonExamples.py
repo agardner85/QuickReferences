@@ -674,3 +674,29 @@ df['total_quotas'] = df['jan_quota'] + df['feb_quota'] + df['mar_quota']
 print (df)
 
 
+
+
+
+# -- Pie charts with pands -------
+
+import matplotlib.pyplot as plt
+import pandas as pd
+# pip3 install pandas
+
+new_way = {
+           'names': ['Andrew','Bob','John','Dan','Jill','Frank'],
+           'jan_quota': [124,24,80,110,105,115],
+           'feb_quota': [92,50,95,110,120,101],
+           'mar_quota': [132,80,93,110,167,65]
+           }
+
+df = pd.DataFrame(new_way, columns=['names','jan_quota','feb_quota','mar_quota'])
+df['total_quotas'] = df['jan_quota'] + df['feb_quota'] + df['mar_quota']
+
+color = [(1,.4,.4),(1,.6,1),(.5,.3,1),(.3,1,.5),(.5,.5,.2),(.3,.5,.2)]
+
+plt.pie(df['total_quotas'], labels = df['names'], colors = color, autopct = '%1.1f%%')
+
+plt.axis('equal')
+plt.show()
+
