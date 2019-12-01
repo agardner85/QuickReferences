@@ -574,7 +574,7 @@ plt.show()
 
 
 
-# -- adding color to the lins and adding labels -------
+# -- adding color to the lines and adding labels -------
 
 import matplotlib.pyplot as plt
 #pip3  install matplotlib
@@ -591,6 +591,34 @@ plt.xlabel('Population by year')
 
 plt.title('Population growth')
 plt.show()
+
+
+
+
+
+# -- multiple lines with individual colors and markers -------
+
+
+import matplotlib.pyplot as plt
+
+
+years = [1950,1955,1960,1965,1970,1975,1980,1985,1990,1995,2000,2005,2010,2015]
+
+population = [2.5,2.7,3.0,3.3,3.6,4.0,4.4,4.8,5.3,5.7,6.1,6.5,6.9,7.3]
+
+deaths = [1.1,1.2,1.5,1.7,1.9,2,2.3,2.7,2.4,2.5,2.6,2.7,2.8,2.9]
+
+plt.plot(years, population, '--', color=(255/255, 100/255, 100/255), marker='o')
+plt.plot(years, deaths, marker='x')
+plt.ylabel('Population in Billions')
+plt.xlabel('Population by year')
+
+plt.title('Population growth')
+plt.show()
+
+
+
+
 
 
 # -- pie charsts with exploded sections -------
