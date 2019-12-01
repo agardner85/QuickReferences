@@ -740,7 +740,7 @@ data4 = plt.bar(index + bar_width*3, bill, bar_width, label='Bill')
 # labeling the graph and giving it a name
 plt.ylabel('Quota')
 plt.xlabel('Months')
-plt.title('Quotas by month')
+plt.title('Hi Five Quotas by month')
 
 # renaming the bottom 'x' markers on the graph and spacing them out a bit better
 plt.xticks(index + .6 / 2, ('Jan','Feb','Mar','Apr','May'))
@@ -755,7 +755,7 @@ plt.show()
 
 
 
-# -- labeling everything even the bars -------
+# -- labeling everything even the bars and moveing the ledgend -------
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -792,10 +792,12 @@ CreateLabel(data4)
 
 plt.ylabel('Quota')
 plt.xlabel('Months')
-plt.title('Quotas by month')
+plt.title('Hi Five Quotas by month')
 
 plt.xticks(index + .6 / 2, ('Jan','Feb','Mar','Apr','May'))
-plt.legend()
+
+# you can pass peramaters to the ledged to move it around, change colors... etc
+plt.legend(frameon=False, bbox_to_anchor=(1,1), loc=2)
 
 plt.grid(True)
 plt.show()
