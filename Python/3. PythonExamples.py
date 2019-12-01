@@ -610,3 +610,39 @@ plt.pie(sizes, labels=labels, autopct='%1.1f%%', explode=seperated)
 plt.axis('equal')
 
 plt.show()
+
+
+
+# -- data construction using pandas -------
+
+import pandas as pd
+# pip3 install pandas
+
+# old way
+# data = [{
+#             'name':'Andrew',
+#             'jan_quota':'124',
+#             'feb_quota':'92',
+#             'mar_quota':'132'
+#          },
+#         {
+#             'name':'John',
+#             'jan_quota':'111',
+#             'feb_quota':'100',
+#             'mar_quota':'35'
+#          }]
+
+
+new_way = {
+           'names': ['Andrew','Bob','John','Dan','Jill','Frank'],
+           'jan_quota': [124,24,80,110,105,115],
+           'feb_quota': [92,50,95,110,120,101],
+           'mar_quota': [132,80,93,110,167,65]
+           }
+
+df = pd.DataFrame(new_way, columns=['names','jan_quota','feb_quota','mar_quota'])
+df['total_quotas'] = df['jan_quota'] + df['feb_quota'] + df['mar_quota']
+
+print (df)
+
+
