@@ -648,6 +648,8 @@ plt.show()
 import matplotlib.pyplot as plt
 import numpy as np
 
+# pip3 install numpy
+
 # how many bar in the chart
 col_count = 5
 
