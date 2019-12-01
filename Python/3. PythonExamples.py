@@ -250,39 +250,24 @@ def StartSearch():
     params = {'q':search}
     dir_name = search.replace(' ','_').lower()
 
-    # make a folder with the name of the search input
     if not os.path.isdir(dir_name):
         os.makedirs(dir_name)
         print('made dir',dir_name)
 
-    # the location of the site you are going to be getting data from
     r = requests.get('http://www.bing.com/images/search', params=params)
+
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    # select the parnet element to pull data from
     results = soup.find('span',{'id':'main'})
-
-    # brake the parent elements into seperate items
     links = results.findAll('div',{'class':'item'})
 
     for item in links:
-        # try to connect to the file to download
         try:
-            # get the href of each img
             img_href = item.find('a').attrs['href']
-
-            # use request to get the information in the correct format
             img_href2 = requests.get(img_href)
-
-            # make a name for the image based on image link. What ever is after the last /
             img_title = item.find('a').attrs['href'].split('/')[-1]
-
-            # try to download the file after it was found
             try:
-                # set this item into memory
                 img = Image.open(BytesIO(img_href2.content))
-
-                # perform the same action for this item based on what is in memory
                 img.save('./'+dir_name+'/' + img_title, img.format)
                 print('imgae',img_title,'saved to',dir_name)
             except:
@@ -558,3 +543,52 @@ enemy1.getEnemyHP()
 enemy2 = Enemy(12,56)
 enemy2.getAtk()
 enemy2.getEnemyHP()
+
+
+
+
+
+
+# -----------------------------
+# ---- data visualization -----
+# -----------------------------
+
+
+import matplotlib.pyplot as plt
+#pip3  install matplotlib
+
+
+years = [1,1000,1500,1600,1700,1750,1800,
+         1850,1900,1950,1955,1960,1965,1970,
+         1975,1980,1985,1990,1995,2000,2005,2010,2015]
+
+population = [200,400,458,580,682,791,1000,
+              1262,1650,2525,2758,3018,3322,3682,
+              4061,4440,4853,5310,5735,6127,6520,6930,7349]
+
+
+plt.plot(years, population)
+plt.show()
+
+
+
+
+
+# -- adding color to the lins and adding labels -------
+
+import matplotlib.pyplot as plt
+#pip3  install matplotlib
+
+
+years = [1950,1955,1960,1965,1970,1975,1980,1985,1990,1995,2000,2005,2010,2015]
+
+population = [2.5,2.7,3.0,3.3,3.6,4.0,4.4,4.8,5.3,5.7,6.1,6.5,6.9,7.3]
+
+
+plt.plot(years, population, color=(255/255, 100/255, 100/255))
+plt.ylabel('Population in Billions')
+plt.xlabel('Population by year')
+
+plt.title('Population growth')
+plt.show()
+
