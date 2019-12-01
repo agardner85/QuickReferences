@@ -250,24 +250,39 @@ def StartSearch():
     params = {'q':search}
     dir_name = search.replace(' ','_').lower()
 
+    # make a folder with the name of the search input
     if not os.path.isdir(dir_name):
         os.makedirs(dir_name)
         print('made dir',dir_name)
 
+    # the location of the site you are going to be getting data from
     r = requests.get('http://www.bing.com/images/search', params=params)
-
     soup = BeautifulSoup(r.text, 'html.parser')
 
+    # select the parnet element to pull data from
     results = soup.find('span',{'id':'main'})
+
+    # brake the parent elements into seperate items
     links = results.findAll('div',{'class':'item'})
 
     for item in links:
+        # try to connect to the file to download
         try:
+            # get the href of each img
             img_href = item.find('a').attrs['href']
+
+            # use request to get the information in the correct format
             img_href2 = requests.get(img_href)
+
+            # make a name for the image based on image link. What ever is after the last /
             img_title = item.find('a').attrs['href'].split('/')[-1]
+
+            # try to download the file after it was found
             try:
+                # set this item into memory
                 img = Image.open(BytesIO(img_href2.content))
+
+                # perform the same action for this item based on what is in memory
                 img.save('./'+dir_name+'/' + img_title, img.format)
                 print('imgae',img_title,'saved to',dir_name)
             except:
