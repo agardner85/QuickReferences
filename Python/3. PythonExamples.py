@@ -188,6 +188,99 @@ print(test_json['children'][0]['firstName'])
 
 
 
+# ---------- getting all links with in a parent element -----------
+
+
+from bs4 import BeautifulSoup
+import requests
+
+# pip3 install bs4
+
+
+search = input('Enter search term: ')
+params = {'q':search}
+r = requests.get('http://www.bing.com/search', params=params)
+
+#print(r.url)
+
+soup = BeautifulSoup(r.text, 'html.parser')
+#print(soup.prettify())
+
+
+results = soup.find('ol',{'id':'b_results'})
+links = results.findAll('li',{'class':'b_algo'})
+
+for item in links:
+    item_text = item.find('a').text
+    item_href = item.find('a').attrs['href']
+    item_h2 = item.find('a').parent
+    item_summary = item.find('a').parent.parent.text
+
+    if item_text and item_href:
+        print(item_h2)
+        print(item_text)
+        print(item_href)
+        print(item_summary)
+
+        # all children
+        #children = item.children
+        #for child in children:
+            #print('Child',child)
+
+        #first child
+        children = item.find('h2')
+        print('Next sibling to the h2', children.next_sibling())
+        #print('Previous sibling to the h2', children.previous_sibling())
+
+
+
+
+
+# ---------- getting all images from a url -----------
+
+
+from bs4 import BeautifulSoup
+import requests
+from PIL import Image
+from io import BytesIO
+import os
+
+def StartSearch():
+    search = input('Enter search term: ')
+    params = {'q':search}
+    dir_name = search.replace(' ','_').lower()
+
+    if not os.path.isdir(dir_name):
+        os.makedirs(dir_name)
+        print('made dir',dir_name)
+
+    r = requests.get('http://www.bing.com/images/search', params=params)
+
+    soup = BeautifulSoup(r.text, 'html.parser')
+
+    results = soup.find('span',{'id':'main'})
+    links = results.findAll('div',{'class':'item'})
+
+    for item in links:
+        try:
+            img_href = item.find('a').attrs['href']
+            img_href2 = requests.get(img_href)
+            img_title = item.find('a').attrs['href'].split('/')[-1]
+            try:
+                img = Image.open(BytesIO(img_href2.content))
+                img.save('./'+dir_name+'/' + img_title, img.format)
+                print('imgae',img_title,'saved to',dir_name)
+            except:
+                print('file faild')
+        except:
+            print('file faild request')
+
+    StartSearch()
+
+StartSearch()
+
+
+
 
 
 
