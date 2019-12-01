@@ -57,6 +57,9 @@ false2 = 5 is 4 # = False
 true3 = 5 is not 4 # = True
 false3 = 5 is not 5 # = False
 
+# you can set a %d in a string and then the value of it after the string and it will go back and replace the %d with the value.
+value = 365
+print('there are %d days in the year' % int(value))
 
 # -----------------------------
 #variables are scopp limited.
@@ -743,6 +746,55 @@ plt.title('Quotas by month')
 plt.xticks(index + .6 / 2, ('Jan','Feb','Mar','Apr','May'))
 
 # displaying the ledgend based on the 'labels' value in each set of data
+plt.legend()
+
+plt.grid(True)
+plt.show()
+
+
+
+
+
+# -- labeling everything even the bars -------
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+col_count = 5
+bar_width = 0.2
+
+andrew = (45,34,54,65,90)
+john = (34,56,67,45,67)
+bob = (23,45,67,45,67)
+bill = (45,45,56,67,45)
+
+index = np.arange(col_count)
+
+data1 = plt.bar(index, andrew, bar_width, label='Andrew')
+data2 = plt.bar(index + bar_width, john, bar_width, label='John', alpha=.5)
+data3 = plt.bar(index + bar_width*2, bob, bar_width, label='Bob')
+data4 = plt.bar(index + bar_width*3, bill, bar_width, label='Bill')
+
+# find the center of the bar and the top of the bar and place text at that location to display that bars exact value.
+def CreateLabel(data):
+    for item in data:
+        bar_height = item.get_height()
+        bar_width2 = item.get_width()
+        bar_x = item.get_x()
+        bar_y = item.get_y()
+
+        plt.text(bar_x + bar_width2 / 2, bar_height * 1.01, bar_height, ha='center', va='bottom')
+
+CreateLabel(data1)
+CreateLabel(data2)
+CreateLabel(data3)
+CreateLabel(data4)
+
+plt.ylabel('Quota')
+plt.xlabel('Months')
+plt.title('Quotas by month')
+
+plt.xticks(index + .6 / 2, ('Jan','Feb','Mar','Apr','May'))
 plt.legend()
 
 plt.grid(True)
