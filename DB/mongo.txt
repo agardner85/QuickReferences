@@ -2,3 +2,4 @@
 # brew services start mongodb-community
 # mongo
 # curl http://localhost:27017
+# pip3 install pymongo
