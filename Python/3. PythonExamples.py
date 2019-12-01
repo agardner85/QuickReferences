@@ -648,6 +648,34 @@ plt.show()
 import matplotlib.pyplot as plt
 import numpy as np
 
+# how many bar in the chart
+col_count = 5
+
+# the data to be displayed
+andrew = (45,34,54,65,90)
+john = (34,56,67,45,67)
+bob = (23,45,67,45,67)
+bill = (45,45,56,67,45)
+
+# display the number of bars
+index = np.arange(col_count)
+
+# call the bars to be drawn. index = how many bars / andrew = the data to be used / .5 is the width of the bar on the graph
+data1 = plt.bar(index, andrew, .5)
+
+
+plt.grid(True)
+plt.show()
+
+
+
+
+
+# -- stacking bars on top of each other -------
+
+import matplotlib.pyplot as plt
+import numpy as np
+
 col_count = 5
 
 andrew = (45,34,54,65,90)
@@ -657,8 +685,63 @@ bill = (45,45,56,67,45)
 
 index = np.arange(col_count)
 
-k1 = plt.bar(index, andrew, .5)
+# multiple data point on the graph will draw the bars on top of each other. 
+# setting the bar witdh differently from eacj other will look like one bar is inside another
+data1 = plt.bar(index, andrew, .5)
+data2 = plt.bar(index, john, .4)
 
+
+plt.grid(True)
+plt.show()
+
+
+
+
+
+# -- stacking bars next to each other with the proper titles and a ledged -------
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# how many bars to display per set of data
+col_count = 5
+
+# width of the bars
+bar_width = 0.2
+
+# data values
+andrew = (45,34,54,65,90)
+john = (34,56,67,45,67)
+bob = (23,45,67,45,67)
+bill = (45,45,56,67,45)
+
+# setting the data bars to be rendered
+index = np.arange(col_count)
+
+# setting each set of data
+# index - how many bars to render for this value
+# 'andrew' = the data values to bring in
+# 'bar_width' = how wid to draw the bar
+# label = the title of that colors bar if a ledged is used.
+# alpha = make that bar transparent based on its value
+
+# starting with data2 and going forward. 'index + bar_width*2' is what shifts the bars over to be next to each other instead of on top
+
+data1 = plt.bar(index, andrew, bar_width, label='Andrew')
+data2 = plt.bar(index + bar_width, john, bar_width, label='John', alpha=.5)
+data3 = plt.bar(index + bar_width*2, bob, bar_width, label='Bob')
+data4 = plt.bar(index + bar_width*3, bill, bar_width, label='Bill')
+
+# labeling the graph and giving it a name
+plt.ylabel('Quota')
+plt.xlabel('Months')
+plt.title('Quotas by month')
+
+# renaming the bottom 'x' markers on the graph and spacing them out a bit better
+plt.xticks(index + .6 / 2, ('Jan','Feb','Mar','Apr','May'))
+
+# displaying the ledgend based on the 'labels' value in each set of data
+plt.legend()
 
 plt.grid(True)
 plt.show()
