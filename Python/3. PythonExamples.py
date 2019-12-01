@@ -641,6 +641,32 @@ plt.show()
 
 
 
+
+
+# -- simple bar chart -------
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+col_count = 5
+
+andrew = (45,34,54,65,90)
+john = (34,56,67,45,67)
+bob = (23,45,67,45,67)
+bill = (45,45,56,67,45)
+
+index = np.arange(col_count)
+
+k1 = plt.bar(index, andrew, .5)
+
+
+plt.grid(True)
+plt.show()
+
+
+
+
+
 # -- data construction using pandas -------
 
 import pandas as pd
@@ -699,4 +725,7 @@ plt.pie(df['total_quotas'], labels = df['names'], colors = color, autopct = '%1.
 
 plt.axis('equal')
 plt.show()
+
+
+
 
