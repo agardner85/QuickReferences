@@ -592,3 +592,21 @@ plt.xlabel('Population by year')
 plt.title('Population growth')
 plt.show()
 
+
+# -- pie charsts with exploded sections -------
+
+import matplotlib.pyplot as plt
+
+labels = 'python','c++','ruby','java','PHP','perl'
+sizes = [33, 52, 12, 17, 62, 48]
+seperated = (.1, 0, 0, .1, 0, 0)
+
+# create a pie chat from the data
+# autopct will allow you to place the percenatages on the pie slices
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', explode=seperated)
+
+# when you resize the graph or pie chat, it will stay a circle and not stretch
+# pie charts render the data counter clock wise.
+plt.axis('equal')
+
+plt.show()
