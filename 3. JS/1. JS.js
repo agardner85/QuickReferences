@@ -125,6 +125,24 @@
         console.log(paramSingleSplit[0]);
         console.log(paramSingleSplit[1]);
 
+
+        //////
+
+
+        // file path
+        var cssLink = '/workingfiles/test/folder/customer-care/cc-size-chart-styles-2019.css';
+
+        // find the position of the last / in the path
+        testLocation = cssLink.lastIndexOf("/");
+        console.log(testLocation);
+
+        // find the last / in the string and kep everything after it
+        var cssFileName = cssLink.slice(testLocation+1);
+        console.log(cssFileName);
+
+
+
+
 /* --------------------------------------------- */
 /* --------------------------------------------- */
 /* ------  Operators - Math - true/false  ------ */
