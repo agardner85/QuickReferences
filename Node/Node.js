@@ -1,5 +1,4 @@
-
-node.js notes
+//node.js notes
 
 
 /* ---------------------------- */
@@ -300,4 +299,83 @@ node.js notes
 	// once running you can visit the site/web server by opening a browser and going to 127.0.0.1:8000
 	server.listen(8000, '127.0.0.1', () => {
 	    console.log('Now listening on port 8000 in local host')
+	});
+
+
+
+/* ----------------------------------------------------------- */
+/* - assigning templates and replacing variables with values - */
+/* ----------------------------------------------------------- */
+
+
+	const fs = require('fs');
+	const http = require('http');
+	const url = require('url');
+
+	// call the template and load them into memmory
+	const tempOverview = fs.readFileSync(`${__dirname}/starter/templates/template-overview.html`, 'utf-8');
+	const tempCard = fs.readFileSync(`${__dirname}/starter/templates/template-card.html`, 'utf-8');
+	const tempProduct = fs.readFileSync(`${__dirname}/starter/templates/template-product.html`, 'utf-8');
+
+	const data = fs.readFileSync(`${__dirname}/starter/dev-data/data.json`, 'utf-8');
+	const dataObj = JSON.parse(data);
+
+
+	// Function that rolls through the page and replaces the variables {%var%} with their values from the json
+	const replaceTemplate = (temp, product) => {
+	    // set the page as a variable and replace each var with a value
+	    let output = temp.replace(/{%NAME%}/g, product.productName);
+	    output = output.replace(/{%IMAGE%}/g, product.image);
+	    output = output.replace(/{%PRICE%}/g, product.price);
+	    output = output.replace(/{%FROM%}/g, product.from);
+	    output = output.replace(/{%NUET%}/g, product.price);
+	    output = output.replace(/{%QTY%}/g, product.quantity);
+	    output = output.replace(/{%DESC%}/g, product.description);
+	    output = output.replace(/{%ID%}/g, product.id);
+	    // boolean statment to see if the value of true/false
+	    if (!product.organic) output = output.replace(/{%NOT_ORGANIC%}/g, 'not-organic');
+	    // after the manipulation is done, reset the variable to the new value.
+	    return output;
+	}
+
+
+	const server = http.createServer((req, res) => {
+	    const pathName = req.url;
+
+	    if (pathName === '/' || pathName === '/overview') {
+	        res.writeHead(200, {
+	            'Content-type': 'text/html',
+	            'Page-type': 'product grid page'
+	        });
+
+	        // set the value of the function to a variable
+	        // .join() converts the object to a string
+	        const cardsHtml = dataObj.map(el => replaceTemplate(tempCard, el)).join('');
+	        // rolls through the template html and replaces the variable with the value
+	        const output = tempOverview.replace('{%PRODUT_CARDS%}', cardsHtml)
+
+	        // prints out the value on the page.
+	        res.end(output);
+	    }
+	    else if (pathName === '/product') {
+	        res.end('Now viewing the product page');
+	    }
+	    else if (pathName === '/api') {
+	        res.writeHead(200, {
+	            'Content-type': 'application/json',
+	            'Page-type': 'product payload'
+	        });
+	        res.end(data);
+	    }
+	    else {
+	        res.writeHead(404, {
+	            'Content-type': 'text/html',
+	            'Page-type': 'page not found'
+	        });
+	        res.end('<h1>This is the 404 page</h1>');
+	    }
+	});
+
+	server.listen(8000, '127.0.0.1', () => {
+	    console.log('Now listening on port 8000 in local host');
 	});
