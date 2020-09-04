@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<!-- 50 hours -->
+<head>
+	<title>WFA json filter test</title>
+
+	<style>
+		.text_container {background-color:#cccccc; padding:10px; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);}
+		.key_word_entry {width:250px;}
+		.reset_filter {border:none; background-color:transparent; font-size:20px; height:20px; vertical-align:top;}
+		.display > div {padding:5px 0 5px 15px;}
+		.display > div:first-of-type {padding:15px 0 5px 15px;}
+		.result_title span {text-decoration:underline;}
+	</style>
+</head>
+<body>
+	<div class="text_container">
+		<select class="filter_by_year">
+			<option value="">Please select year</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+		</select>
+		<input type="text" class="key_word_entry" placeholder="Enter a color name like 'Blue'">
+		<button class="filter_by" type="button">Search</button>
+		<button class="reset_filter" type="button">&times;</button>
+		<div class="display"></div>
+	</div>
+	<script>
+		var filter_data_obj = {
+			"atricles": [
+				{
+					"year":"2015",
+					"atricle":"jan issue",
+					"keywords":"Blue, Green, Yellow",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2015&month=1&country=1"
+				},
+				{
+					"year":"2015",
+					"atricle":"feb issue",
+					"keywords":"purple, orange, blue",
+					"active":"false",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2015&month=2&country=1"
+				},
+				{
+					"year":"2015",
+					"atricle":"mar issue",
+					"keywords":"green, orange, brown, bluegreen",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2015&month=3&country=1"
+				},
+				{
+					"year":"2016",
+					"atricle":"jan issue",
+					"keywords":"Blue, Green, teal",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2016&month=1&country=1"
+				},
+				{
+					"year":"2016",
+					"atricle":"feb issue",
+					"keywords":"Blue, red, teal",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2015&month=2&country=1"
+				},
+				{
+					"year":"2016",
+					"atricle":"mar issue",
+					"keywords":"Grey, Green, red",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2016&month=3&country=1"
+				}
+				,
+				{
+					"year":"2018",
+					"atricle":"oct issue",
+					"keywords":"Grey, brown, orange",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2018&month=10&country=1"
+				},
+				{
+					"year":"2018",
+					"atricle":"dec issue",
+					"keywords":"teal, Green, red",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2018&month=12&country=1"
+				}
+				,
+				{
+					"year":"2020",
+					"atricle":"mar issue",
+					"keywords":"Grey, blue, red",
+					"active":"true",
+					"text":"This is the article informaton",
+					"link":"https://www.timeanddate.com/calendar/monthly.html?year=2020&month=3&country=1"
+				}
+			]
+		} 
+
+
+// -- //
+// -- //
+// -- //
+
+
+		function filterBy () {
+			var year_selector = document.querySelector('.filter_by_year');
+			var selected_year = year_selector[year_selector.selectedIndex].value;
+
+			var keyword = document.querySelector('.key_word_entry').value.toLowerCase()
+
+			document.querySelector('.display').innerHTML = '';
+
+			var current_reults = '';
+			if (selected_year == '' && keyword == '') {
+				document.querySelector('.display').innerHTML = 'No results returned';
+			}
+			else if (selected_year != '' && keyword == '') {
+				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
+					var check_year = filter_data_obj.atricles[i].year;
+					if (check_year == selected_year) {
+						current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for just '+selected_year+' | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
+					}
+				}
+
+				if (current_reults == '') {
+					document.querySelector('.display').innerHTML = 'No results returned';
+				}
+				else {
+					document.querySelector('.display').innerHTML = current_reults;
+				}
+			}
+			else if (selected_year == '' && keyword != '') {
+				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
+					var check_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
+
+					if (check_keywords.indexOf(keyword) != -1) {
+						current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for just '+keyword+' ('+filter_data_obj.atricles[i].year+') | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
+					}
+					else {
+					}
+				}
+
+				if (current_reults == '') {
+					document.querySelector('.display').innerHTML = 'No results returned';
+				}
+				else {
+					document.querySelector('.display').innerHTML = current_reults;
+				}
+			}
+			else {
+				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
+					var check_year = filter_data_obj.atricles[i].year;
+					var check_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
+
+					if (check_year == selected_year && check_keywords.indexOf(keyword) != -1) {
+						current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for both '+selected_year+' and '+keyword+' | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
+					}
+					else {
+					}
+				}
+
+				if (current_reults == '') {
+					document.querySelector('.display').innerHTML = 'No results returned';
+				}
+				else {
+					document.querySelector('.display').innerHTML = current_reults;
+				}
+			}
+		}
+		document.querySelector('.filter_by').addEventListener('click', filterBy);
+
+
+// -- //
+// -- //
+// -- //
+
+
+		function resetFilter () {
+			document.querySelector('.filter_by_year').value = '';
+			document.querySelector('.key_word_entry').value = '';
+			document.querySelector('.display').innerHTML = '';
+		}
+		document.querySelector('.reset_filter').addEventListener('click', resetFilter);
+
+	</script>
+</body>
+</html>
