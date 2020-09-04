@@ -142,12 +142,12 @@
 
 						// append the link to the last div created
 						var new_href = document.createElement('a');
-				        var new_href_text = document.createTextNode('Link to calendar');
-				        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
-				        new_href.append(new_href_text);
-				        document.querySelector('.display').children.item(i).append(new_href);
+				        	var new_href_text = document.createTextNode('Link to calendar');
+				        	new_href.setAttribute('href', filter_data_obj.atricles[i].link);
+				        	new_href.append(new_href_text);
+				       		document.querySelector('.display').children.item(i).append(new_href);
 
-				        // short way pt1
+				       		 // short way pt1
 
 						// current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for '+selected_year+' | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
 					}
