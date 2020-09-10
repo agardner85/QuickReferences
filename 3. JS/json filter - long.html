@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- 50 hours -->
 <head>
 	<title>WFA json filter test</title>
 
@@ -125,78 +124,96 @@
 
 			var current_reults = '';
 			if (selected_year == '' && keyword == '') {
-				document.querySelector('.display').textContent = 'No results returned';
+				var new_div = document.createElement('div');
+				new_div.className = 'result';
+				new_div.textContent = 'No results returned';
+				document.querySelector('.display').appendChild(new_div);
 			}
 			else if (selected_year != '' && keyword == '') {
+				var j = 0;
 				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
 					var check_year = filter_data_obj.atricles[i].year;
 					if (check_year == selected_year) {
+						current_reults = 1;
 
-						// long way
-
-						// create a div with the result
 						var new_div = document.createElement('div');
 						new_div.className = 'result';
 						new_div.textContent = filter_data_obj.atricles[i].atricle+' for '+selected_year+' | ';
-						document.querySelector('.display').append(new_div);
+						document.querySelector('.display').appendChild(new_div);
 
-						// append the link to the last div created
 						var new_href = document.createElement('a');
-				        	var new_href_text = document.createTextNode('Link to calendar');
-				        	new_href.setAttribute('href', filter_data_obj.atricles[i].link);
-				        	new_href.append(new_href_text);
-				       		document.querySelector('.display').children.item(i).append(new_href);
-
-				       		 // short way pt1
-
-						// current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for '+selected_year+' | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
-					}
-				}
-
-				// short way pt2
-
-				// if (current_reults == '') {
-				// 	document.querySelector('.display').textContent = 'No results returned';
-				// }
-				// else {
-				// 	document.querySelector('.display').textContent = current_reults;
-				// }
-			}
-			else if (selected_year == '' && keyword != '') {
-				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
-					var check_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
-
-					if (check_keywords.indexOf(keyword) != -1) {
-						current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for '+keyword+' ('+filter_data_obj.atricles[i].year+') | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
-					}
-					else {
+				        var new_href_text = document.createTextNode('Link to calendar');
+				        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
+				        new_href.appendChild(new_href_text);
+				        document.querySelector('.display').children.item(j).appendChild(new_href);
+				        j++
 					}
 				}
 
 				if (current_reults == '') {
-					document.querySelector('.display').textContent = 'No results returned';
+					var new_div = document.createElement('div');
+					new_div.className = 'result';
+					new_div.textContent = 'No results returned';
+					document.querySelector('.display').appendChild(new_div);
 				}
-				else {
-					document.querySelector('.display').textContent = current_reults;
+			}
+			else if (selected_year == '' && keyword != '') {
+				var j = 0;
+				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
+					var check_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
+
+					if (check_keywords.indexOf(keyword) != -1) {
+						current_reults = 1;
+
+						var new_div = document.createElement('div');
+						new_div.className = 'result';
+						new_div.textContent = filter_data_obj.atricles[i].atricle+' for '+keyword+' ('+filter_data_obj.atricles[i].year+') | ';
+						document.querySelector('.display').appendChild(new_div);
+
+						var new_href = document.createElement('a');
+				        var new_href_text = document.createTextNode('Link to calendar');
+				        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
+				        new_href.appendChild(new_href_text);
+				        document.querySelector('.display').children.item(j).appendChild(new_href);
+				        j++
+					}
+				}
+
+				if (current_reults == '') {
+					var new_div = document.createElement('div');
+					new_div.className = 'result';
+					new_div.textContent = 'No results returned';
+					document.querySelector('.display').appendChild(new_div);
 				}
 			}
 			else {
+				var j = 0;
 				for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
 					var check_year = filter_data_obj.atricles[i].year;
 					var check_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
 
 					if (check_year == selected_year && check_keywords.indexOf(keyword) != -1) {
-						current_reults = current_reults + '<div>'+filter_data_obj.atricles[i].atricle+' for '+selected_year+' and '+keyword+' | <a href="'+filter_data_obj.atricles[i].link+'" target="_blank">Link to calendar</a></div>';
-					}
-					else {
+						current_reults = 1;
+
+						var new_div = document.createElement('div');
+						new_div.className = 'result';
+						new_div.textContent = filter_data_obj.atricles[i].atricle+' for both '+selected_year+' and '+keyword+' | ';
+						document.querySelector('.display').appendChild(new_div);
+
+						var new_href = document.createElement('a');
+				        var new_href_text = document.createTextNode('Link to calendar');
+				        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
+				        new_href.appendChild(new_href_text);
+				        document.querySelector('.display').children.item(j).appendChild(new_href);
+				        j++
 					}
 				}
 
 				if (current_reults == '') {
-					document.querySelector('.display').textContent = 'No results returned';
-				}
-				else {
-					document.querySelector('.display').textContent = current_reults;
+					var new_div = document.createElement('div');
+					new_div.className = 'result';
+					new_div.textContent = 'No results returned';
+					document.querySelector('.display').appendChild(new_div);
 				}
 			}
 		}
