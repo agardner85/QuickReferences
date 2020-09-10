@@ -10,6 +10,7 @@
 		.display > div {padding:5px 0 5px 15px;}
 		.display > div:first-of-type {padding:15px 0 5px 15px;}
 		.result_title span {text-decoration:underline;}
+		.highlight {background-color:yellow;}
 	</style>
 </head>
 <body>
@@ -175,6 +176,16 @@
 				        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
 				        new_href.appendChild(new_href_text);
 				        document.querySelector('.display').children.item(j).appendChild(new_href);
+
+				        var new_span = document.createElement('span');
+				        var new_span_text = document.createTextNode(' '+filter_data_obj.atricles[i].keywords.toLowerCase());
+				        //var new_span_text = document.createTextNode(' '+filter_data_obj.atricles[i].keywords.toLowerCase().replace(keyword,''));
+				        new_span.appendChild(new_span_text);
+				        document.querySelector('.display').children.item(j).appendChild(new_span);
+
+				        var highlight_keyword = document.querySelector('.display').children.item(j).children.item(1).textContent.toLowerCase()
+				        highlight_keyword = highlight_keyword.replace(keyword,'<span class="highlight">'+keyword+'</span>')
+				        document.querySelector('.display').children.item(j).children.item(1).innerHTML = highlight_keyword;
 				        j++
 					}
 				}
