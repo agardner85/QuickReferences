@@ -4,16 +4,17 @@
 	<title>WFA json filter test</title>
 
 	<style>
-		.text_container {background-color:#cccccc; padding:10px; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);}
+		.text_container {background-color:#cccccc; padding:10px; width:500px; margin-bottom:50px;}
 		.key_word_entry {width:250px;}
 		.reset_filter {border:none; background-color:transparent; font-size:20px; height:20px; vertical-align:top;}
-		.display > div {padding:5px 0 5px 15px;}
-		.display > div:first-of-type {padding:15px 0 5px 15px;}
+		.display > div, .display2 > div {padding:5px 0 5px 15px;}
+		.display > div:first-of-type .display2 > div:first-of-type {padding:15px 0 5px 15px;}
 		.result_title span {text-decoration:underline;}
 		.highlight {background-color:yellow;}
 	</style>
 </head>
 <body>
+	This filter will allow you to search by year and or keyword freely
 	<div class="text_container">
 		<select class="filter_by_year">
 			<option value="">Please select year</option>
@@ -28,6 +29,15 @@
 		<button class="filter_by" type="button">Search</button>
 		<button class="reset_filter" type="button">&times;</button>
 		<div class="display"></div>
+	</div>
+	This filter will create selections options based on what is in the json with out repeating and display them in abc order so that you cant search for something that does not exist.
+	<div class="text_container">
+		<select class="filter_by_available">
+			<option value="">Please select option</option>
+		</select>
+		<button class="filter_by2" type="button">Search</button>
+		<button class="reset_filter2" type="button">&times;</button>
+		<div class="display2"></div>
 	</div>
 	<script>
 		var filter_data_obj = {
@@ -179,12 +189,11 @@
 
 				        var new_span = document.createElement('span');
 				        var new_span_text = document.createTextNode(' '+filter_data_obj.atricles[i].keywords.toLowerCase());
-				        //var new_span_text = document.createTextNode(' '+filter_data_obj.atricles[i].keywords.toLowerCase().replace(keyword,''));
 				        new_span.appendChild(new_span_text);
 				        document.querySelector('.display').children.item(j).appendChild(new_span);
 
-				        var highlight_keyword = document.querySelector('.display').children.item(j).children.item(1).textContent.toLowerCase()
-				        highlight_keyword = highlight_keyword.replace(keyword,'<span class="highlight">'+keyword+'</span>')
+				        var highlight_keyword = document.querySelector('.display').children.item(j).children.item(1).textContent.toLowerCase();
+				        highlight_keyword = highlight_keyword.replace(keyword,'<span class="highlight">'+keyword+'</span>');
 				        document.querySelector('.display').children.item(j).children.item(1).innerHTML = highlight_keyword;
 				        j++
 					}
@@ -216,6 +225,16 @@
 				        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
 				        new_href.appendChild(new_href_text);
 				        document.querySelector('.display').children.item(j).appendChild(new_href);
+
+				        var new_span = document.createElement('span');
+				        var new_span_text = document.createTextNode(' '+filter_data_obj.atricles[i].keywords.toLowerCase());
+				        new_span.appendChild(new_span_text);
+				        document.querySelector('.display').children.item(j).appendChild(new_span);
+
+				        var highlight_keyword = document.querySelector('.display').children.item(j).children.item(1).textContent.toLowerCase();
+				        highlight_keyword = highlight_keyword.replace(keyword,'<span class="highlight">'+keyword+'</span>');
+				        document.querySelector('.display').children.item(j).children.item(1).innerHTML = highlight_keyword;
+
 				        j++
 					}
 				}
@@ -242,6 +261,102 @@
 			document.querySelector('.display').textContent = '';
 		}
 		document.querySelector('.reset_filter').addEventListener('click', resetFilter);
+
+// -- //
+// -- //
+// -- //
+// -- //
+// -- //
+// -- //
+// -- //
+// -- //
+// -- //
+		
+		var final_keywords = [];
+		for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
+			var current_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
+			current_keywords = current_keywords.replace(/ /g,'');
+
+			var temp_keyword_arry = current_keywords.split(',');
+
+			for (var b = 0; b <= temp_keyword_arry.length-1; b++) {
+				var current_temp_keyword_check = temp_keyword_arry[b].toLowerCase();
+				if (final_keywords.indexOf(current_temp_keyword_check) == -1) {
+					final_keywords.push(current_temp_keyword_check);
+				}
+			}
+		}
+
+		final_keywords = final_keywords.sort()
+
+		for (var f = 0; f <= final_keywords.length-1; f++) {
+			var new_option = document.createElement('option');
+			var new_option_text = document.createTextNode(final_keywords[f]);
+			new_option.setAttribute('value', final_keywords[f]);
+			new_option.appendChild(new_option_text);
+			document.querySelector('.filter_by_available').appendChild(new_option);
+		}
+
+		
+
+		function filterBy2 () {
+			document.querySelector('.display2').textContent = '';
+
+			var j = 0;
+			var current_reults = '';
+
+			var keyword_selector = document.querySelector('.filter_by_available');
+			var selected_keyword = keyword_selector[keyword_selector.selectedIndex].value;
+			for (var i = 0; i <= filter_data_obj.atricles.length-1; i++) {
+			
+				var check_keywords = filter_data_obj.atricles[i].keywords.toLowerCase();
+
+				if (check_keywords.indexOf(selected_keyword) != -1) {
+					current_reults = 1;
+					var new_div = document.createElement('div');
+					new_div.className = 'result';
+					new_div.textContent = filter_data_obj.atricles[i].atricle+' for '+selected_keyword+' ('+filter_data_obj.atricles[i].year+') | ';
+					document.querySelector('.display2').appendChild(new_div);
+
+					var new_href = document.createElement('a');
+			        var new_href_text = document.createTextNode('Link to calendar');
+			        new_href.setAttribute('href', filter_data_obj.atricles[i].link);
+			        new_href.appendChild(new_href_text);
+			        document.querySelector('.display2').children.item(j).appendChild(new_href);
+
+			        var new_span = document.createElement('span');
+			        var new_span_text = document.createTextNode(' '+filter_data_obj.atricles[i].keywords.toLowerCase());
+			        new_span.appendChild(new_span_text);
+			        document.querySelector('.display2').children.item(j).appendChild(new_span);
+
+			        var highlight_keyword = document.querySelector('.display2').children.item(j).children.item(1).textContent.toLowerCase();
+			        highlight_keyword = highlight_keyword.replace(selected_keyword,'<span class="highlight">'+selected_keyword+'</span>');
+			        document.querySelector('.display2').children.item(j).children.item(1).innerHTML = highlight_keyword;
+			        j++
+				}
+			}
+			if (current_reults == '') {
+					var new_div = document.createElement('div');
+					new_div.className = 'result';
+					new_div.textContent = 'No results returned';
+					document.querySelector('.display2').appendChild(new_div);
+				}
+		}
+		document.querySelector('.filter_by2').addEventListener('click', filterBy2);
+
+
+// -- //
+// -- //
+// -- //
+
+
+		function resetFilter2 () {
+			document.querySelector('.filter_by_available').value = '';
+			document.querySelector('.display2').textContent = '';
+
+
+		}
+		document.querySelector('.reset_filter2').addEventListener('click', resetFilter2);
 
 	</script>
 </body>
